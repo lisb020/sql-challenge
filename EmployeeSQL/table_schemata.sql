@@ -5,11 +5,12 @@ DROP TABLE IF EXISTS employees;
 CREATE TABLE employees (
   	emp_no INT PRIMARY KEY,
   	emp_title_id VARCHAR(5) NOT NULL,
-  	birth_date DATE,
-  	first_name VARCHAR,
+  	birth_date DATE NOT NULL,
+  	first_name VARCHAR NOT NULL,
  	last_name VARCHAR NOT NULL,
  	sex VARCHAR(1) NOT NULL,
-	hire_date DATE
+	hire_date DATE NOT NULL,
+	FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
 );
 
 -- Query all fields from the table
@@ -22,7 +23,7 @@ DROP TABLE IF EXISTS salaries;
 -- Create salaries table
 CREATE TABLE salaries (
   	emp_no INT PRIMARY KEY,
-  	salary INT
+  	salary INT NOT NULL
 );
 
 -- Query all fields from the table
